@@ -1,4 +1,5 @@
 from keras_unet import TF
+import tensorflow_addons as tfa
 if TF:
     from tensorflow.keras.models import Model
     from tensorflow.keras.layers import (
@@ -104,7 +105,7 @@ def conv2d_block(
     c = Conv2D(
         filters,
         kernel_size,
-        activation=activation,
+        activation= tfa.activations.mish(c),
         kernel_initializer=kernel_initializer,
         padding=padding,
         use_bias=not use_batch_norm,
@@ -116,7 +117,7 @@ def conv2d_block(
     c = Conv2D(
         filters,
         kernel_size,
-        activation=activation,
+        activation= tfa.activations.mish(c)
         kernel_initializer=kernel_initializer,
         padding=padding,
         use_bias=not use_batch_norm,
