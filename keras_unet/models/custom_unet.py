@@ -117,7 +117,7 @@ def conv2d_block(
     c = Conv2D(
         filters,
         kernel_size,
-        activation= tfa.activations.mish(c)
+        activation= tfa.activations.mish(c),
         kernel_initializer=kernel_initializer,
         padding=padding,
         use_bias=not use_batch_norm,
